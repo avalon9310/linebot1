@@ -7,12 +7,15 @@ from django.views.decorators.csrf import csrf_exempt
 
 from linebot import LineBotApi, WebhookHandler,WebhookParser
 from linebot.exceptions import InvalidSignatureError,LineBotApiError
-from linebot.models import MessageEvent,TextSendMessage,TextMessage
+from linebot.models import MessageEvent,TextSendMessage,TextMessage,ImageSendMessage
 import random
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parse=WebhookParser(settings.LINE_CHANNEL_SECRET)
 
+
+def index(requests):
+    return HttpResponse("<h1>Linebot APP</h1>")
 
 @csrf_exempt    
 def callback(request):
@@ -35,6 +38,11 @@ def callback(request):
                         message='https://movies.yahoo.com.tw/'
                     elif '台北捷運' in text:
                         message='https://web.metro.taipei/pages/assets/images/routemap2020.png'
+                    elif '台中捷運' in text:
+                        image_url='https://assets.piliapp.com/s3pxy/mrt_taiwan/taichung/20201112_zh.png'
+                        line_bot_api.reply_message(event.reply_token,
+                            ImageSendMessage(original_content_url=image_url,
+                                            preview_image_url=image_url))
                     elif '樂透' in text:
                         message = lotto()
                     elif '早安' in text:
