@@ -45,11 +45,11 @@ def callback(request):
                         message=get_biglotto()
                     elif '華語' in text:
                         message=get_cmusic()
-                    elif '日文' in text:
+                    elif '日語' in text:
                         message=get_jmusic()
                     elif '西洋' in text:
                         message=get_wmusic()
-                    elif '韓文' in text:
+                    elif '韓語' in text:
                         message=get_kmusic()
                     elif '台語' in text:
                         message=get_tmusic()
