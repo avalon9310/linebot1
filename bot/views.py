@@ -25,7 +25,7 @@ def index(requests):
 
 @csrf_exempt    
 def callback(request):
-    words=['早安你好','天氣很不錯!','我準備去上班','快中午了','再說一次']
+    words=['請輸入對應語言~(華語、日文、西洋、韓語、台語、粵語)','要輸入對應語言我才能幫你!(華語、日文、西洋、韓語、台語、粵語)','除了幫你找音樂我不會做別的QQ(華語、日文、西洋、韓語、台語、粵語)','想知道現在流行的音樂就輸入!(華語、日文、西洋、韓語、台語、粵語)']
     if request.method=='POST':
         signature=request.META['HTTP_X_LINE_SIGNATURE']
         body=request.body.decode('utf-8')
@@ -43,7 +43,7 @@ def callback(request):
                     print(text)  
                     if '大樂透'==text:
                         message=get_biglotto()
-                    elif '中文' in text:
+                    elif '華語' in text:
                         message=get_cmusic()
                     elif '日文' in text:
                         message=get_jmusic()
@@ -54,9 +54,7 @@ def callback(request):
                     elif '台語' in text:
                         message=get_tmusic()
                     elif '粵語' in text:
-                        message=get_hmusic()              
-                    elif '樂透' in text:
-                        message = lotto()
+                        message=get_hmusic()                         
                     elif '早安' in text:
                         message='早安你好'
                     else:  
@@ -76,12 +74,7 @@ def callback(request):
     else:
         return HttpResponseBadRequest()
     
-def lotto():
-    numbers = sorted(random.sample(range(1,50),6))
-    result = ' '.join(map(str, numbers))
-    n = random.randint(1, 50)
 
-    return (f'{result} 特別號:{n}')
 
 
 def get_biglotto():
