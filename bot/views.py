@@ -98,6 +98,7 @@ def get_biglotto():
     result=f'{title}\n{numbers}'
     return result
 
+#華語
 def get_cmusic():
     url="https://kma.kkbox.com/charts/api/v1/daily?category=297&lang=tc&limit=50&terr=tw&type=newrelease"
     response=requests.get(url)
@@ -110,9 +111,10 @@ def get_cmusic():
         song_name=song["song_name"]
         song_artist=song["artist_name"]
         song_url=song["song_url"]    
-        temp_str += f'{i+1}. {song_artist}-{song_name} 今日排名:{song_rank}, 上期排名:{last_rank}, 連結:{song_url}\n'
+        temp_str += f'{i+1}. {song_artist}-{song_name} 今日排名:{song_rank}, 前日排名:{last_rank}, 連結:{song_url}\n'
     return temp_str
 
+#日語
 def get_jmusic(): 
     url1="https://kma.kkbox.com/charts/api/v1/daily?category=308&lang=tc&limit=50&terr=tw&type=newrelease"
     response1=requests.get(url1)
@@ -125,11 +127,11 @@ def get_jmusic():
         song_name1=song1["song_name"]
         song_artist1=song1["artist_name"]
         song_url1=song1["song_url"]    
-        temp_str1 += f'{i+1}. {song_artist1}-{song_name1} 今日排名:{song_rank1}, 上期排名:{last_rank1}, 連結:{song_url1}\n'
+        temp_str1 += f'{i+1}. {song_artist1}-{song_name1} 今日排名:{song_rank1}, 前日排名:{last_rank1}, 連結:{song_url1}\n'
     return temp_str1 
         
 
-
+#西洋
 def get_wmusic():
     url2="https://kma.kkbox.com/charts/api/v1/daily?category=390&lang=tc&limit=50&terr=tw&type=newrelease"
     response2=requests.get(url2)
@@ -142,12 +144,12 @@ def get_wmusic():
         song_name2=song2["song_name"]
         song_artist2=song2["artist_name"]
         song_url2=song2["song_url"]    
-        temp_str2 += f'{i+1}. {song_artist2}-{song_name2} 今日排名:{song_rank2}, 上期排名:{last_rank2}, 連結:{song_url2}\n'
+        temp_str2 += f'{i+1}. {song_artist2}-{song_name2} 今日排名:{song_rank2}, 前日排名:{last_rank2}, 連結:{song_url2}\n'
     return temp_str2 
 
 
 
-
+#韓語
 def get_kmusic(): 
     url3="https://kma.kkbox.com/charts/api/v1/daily?category=314&lang=tc&limit=50&terr=tw&type=newrelease"
     response3=requests.get(url3)
@@ -160,11 +162,11 @@ def get_kmusic():
         song_name3=song3["song_name"]
         song_artist3=song3["artist_name"]
         song_url3=song3["song_url"]    
-        temp_str3 += f'{i+1}. {song_artist3}-{song_name3} 今日排名:{song_rank3}, 上期排名:{last_rank3}, 連結:{song_url3}\n'
+        temp_str3 += f'{i+1}. {song_artist3}-{song_name3} 今日排名:{song_rank3}, 前日排名:{last_rank3}, 連結:{song_url3}\n'
     return temp_str3
 
 
-
+#台語
 def get_tmusic(): 
     url4="https://kma.kkbox.com/charts/api/v1/daily?category=304&lang=tc&limit=50&terr=tw&type=newrelease"
     response4=requests.get(url4)
@@ -177,10 +179,10 @@ def get_tmusic():
         song_name4=song4["song_name"]
         song_artist4=song4["artist_name"]
         song_url4=song4["song_url"]    
-        temp_str4 += f'{i+1}. {song_artist4}-{song_name4} 今日排名:{song_rank4}, 上期排名:{last_rank4}, 連結:{song_url4}\n'
+        temp_str4 += f'{i+1}. {song_artist4}-{song_name4} 今日排名:{song_rank4}, 前日排名:{last_rank4}, 連結:{song_url4}\n'
     return temp_str4 
 
-
+#粵語
 def get_hmusic(): 
     url5="https://kma.kkbox.com/charts/api/v1/daily?category=320&lang=tc&limit=50&terr=tw&type=newrelease"
     response5=requests.get(url5)
@@ -193,5 +195,5 @@ def get_hmusic():
         song_name5=song5["song_name"]
         song_artist5=song5["artist_name"]
         song_url5=song5["song_url"]    
-        temp_str5 += f'{i+1}. {song_artist5}-{song_name5} 今日排名:{song_rank5}, 上期排名:{last_rank5}, 連結:{song_url5}\n'
+        temp_str5 += f'{i+1}. {song_artist5}-{song_name5} 今日排名:{song_rank5}, 前日排名:{last_rank5}, 連結:{song_url5}\n'
     return temp_str5
