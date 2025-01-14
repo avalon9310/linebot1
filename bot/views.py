@@ -25,7 +25,7 @@ def index(requests):
 
 @csrf_exempt    
 def callback(request):
-    words=['請輸入對應語言~(華語、日語、西洋、韓語、台語、粵語)','要輸入對應語言我才能幫你!(華語、日語、西洋、韓語、台語、粵語)','除了幫你找音樂我沒辦法為你做別的QQ(華語、日語、西洋、韓語、台語、粵語)','想知道現在流行的音樂就輸入!(華語、日語、西洋、韓語、台語、粵語)']
+    words=['請輸入對應語言~\n(華語、日語、西洋、韓語、台語、粵語)','要輸入對應語言我才能幫你!\n(華語、日語、西洋、韓語、台語、粵語)','除了幫你找音樂我沒辦法為你做別的QQ...\n(華語、日語、西洋、韓語、台語、粵語)','想知道現在流行的音樂就輸入!\n(華語、日語、西洋、韓語、台語、粵語)']
     if request.method=='POST':
         signature=request.META['HTTP_X_LINE_SIGNATURE']
         body=request.body.decode('utf-8')
@@ -61,7 +61,7 @@ def callback(request):
                         message=random.choice(words)
                                       
                 else:
-                    message='無法解析'
+                    message='傳這種怪怪的東西我看不懂啦-__-\n(請輸入對應語言:華語、日語、西洋、韓語、台語、粵語)'
                    
 
                 messageObject=TextSendMessage(text=message) if message is not None else \
