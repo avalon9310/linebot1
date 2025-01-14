@@ -104,7 +104,7 @@ def get_cmusic():
     data=json.loads(response.text)
     song_list = data["data"]["charts"]["newrelease"]
     temp_str=''
-    for i, song in enumerate(song_list):
+    for i, song in enumerate(song_list[:20]):
         song_rank=song["rankings"]["this_period"]
         last_rank=song["rankings"]["last_period"]
         song_name=song["song_name"]
@@ -119,7 +119,7 @@ def get_jmusic():
     data1=json.loads(response1.text)
     song_list1 = data1["data"]["charts"]["newrelease"]
     temp_str1='' 
-    for i, song1 in enumerate(song_list1):
+    for i, song1 in enumerate(song_list1[:20]):
         song_rank1=song1["rankings"]["this_period"]
         last_rank1=song1["rankings"]["last_period"]
         song_name1=song1["song_name"]
@@ -136,7 +136,7 @@ def get_wmusic():
     data2=json.loads(response2.text)
     song_list2 = data2["data"]["charts"]["newrelease"]
     temp_str2=''
-    for i, song2 in enumerate(song_list2):
+    for i, song2 in enumerate(song_list2[:20]):
         song_rank2=song2["rankings"]["this_period"]
         last_rank2=song2["rankings"]["last_period"]
         song_name2=song2["song_name"]
@@ -154,7 +154,7 @@ def get_kmusic():
     data3=json.loads(response3.text)
     song_list3 = data3["data"]["charts"]["newrelease"]
     temp_str3=''
-    for i, song3 in enumerate(song_list3):
+    for i, song3 in enumerate(song_list3[:20]):
         song_rank3=song3["rankings"]["this_period"]
         last_rank3=song3["rankings"]["last_period"]
         song_name3=song3["song_name"]
@@ -171,7 +171,7 @@ def get_tmusic():
     data4=json.loads(response4.text)
     song_list4 = data4["data"]["charts"]["newrelease"]
     temp_str4=''  
-    for i, song4 in enumerate(song_list4):
+    for i, song4 in enumerate(song_list4[:20]):
         song_rank4=song4["rankings"]["this_period"]
         last_rank4=song4["rankings"]["last_period"]
         song_name4=song4["song_name"]
@@ -187,7 +187,7 @@ def get_hmusic():
     data5=json.loads(response5.text)
     song_list5 = data5["data"]["charts"]["newrelease"]
     temp_str5=''   
-    for i, song5 in enumerate(song_list5):
+    for i, song5 in enumerate(song_list5[:20]):
         song_rank5=song5["rankings"]["this_period"]
         last_rank5=song5["rankings"]["last_period"]
         song_name5=song5["song_name"]
